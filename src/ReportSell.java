@@ -173,7 +173,7 @@ public class ReportSell extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel5MouseClicked
     public void pdfMen() throws SQLException, IOException{
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             Document repVen = new Document(PageSize.LETTER);
             repVen.setMargins(72, 72, 72, 72);
@@ -334,7 +334,7 @@ public class ReportSell extends javax.swing.JPanel {
     }
     public void pdfAnu() throws SQLException, IOException{
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             Document repVen = new Document(PageSize.LETTER);
             repVen.setMargins(72, 72, 72, 72);

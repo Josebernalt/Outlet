@@ -327,7 +327,7 @@ public class Sell extends javax.swing.JPanel {
             PdfWriter writer = PdfWriter.getInstance(fact, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop"
                     + "/Facturas/Factura.pdf"));
             fact.open();
-            Con con = new Con();
+            Cone con = new Cone();
             Reporte.GenerarReporteInv(con, fact, writer);
             fact.close();
             writer.close();
@@ -355,7 +355,7 @@ public class Sell extends javax.swing.JPanel {
             // Convierte el valor de entrada a un entero
             int ced = Integer.parseInt(cedStr);
             // Crea una conexión a la base de datos
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             // Consulta para obtener el nombre desde la base de datos
             PreparedStatement pst = cn.prepareStatement("SELECT Nombre FROM cliente WHERE Id LIKE ?");
@@ -392,7 +392,7 @@ public class Sell extends javax.swing.JPanel {
         int fila = jTable1.getSelectedRow();
         if (fila>=0) {
             try {
-                Con con = new Con();
+                Cone con = new Cone();
                 Connection cn = con.conexion();
                 DefaultTableModel modelo2= (DefaultTableModel) jTable1.getModel();
                         PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET cantidad = cantidad + ?, preciototalcom = cantidad * preciocom, "
@@ -529,7 +529,7 @@ public class Sell extends javax.swing.JPanel {
 
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         if (TxtCodVe.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, """
@@ -614,7 +614,7 @@ public class Sell extends javax.swing.JPanel {
     }
     private static boolean clienteExisteEnBD() {
         String consulta = "SELECT COUNT(*) FROM cliente WHERE Id = ?";
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         try{
             int ced = Integer.parseInt(TxtCed.getText());
@@ -653,7 +653,7 @@ public class Sell extends javax.swing.JPanel {
     public class Reporte {
 
         
-        public static void GenerarReporteInv(Con con, Document fact, PdfWriter writer) throws IOException{
+        public static void GenerarReporteInv(Cone con, Document fact, PdfWriter writer) throws IOException{
             try {
              Connection cn = con.conexion();
              if (TxtEfe.getText().isEmpty() || TxtCed.getText().isEmpty()||TxtNombre.getText().isEmpty()

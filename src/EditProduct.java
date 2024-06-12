@@ -266,7 +266,7 @@ public class EditProduct extends javax.swing.JPanel {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              if (jTextField1.getText().isEmpty()|jTextField2.getText().isEmpty()|jTextField3.getText().isEmpty()|jTextField4.getText().isEmpty()
                      |jTextField5.getText().isEmpty()|jTextField6.getText().isEmpty()|jTextArea1.getText().isEmpty()) {

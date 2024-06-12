@@ -380,7 +380,7 @@ public class NewApart extends javax.swing.JPanel {
                             "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              if (jTextField3.getText().isEmpty()||TxtDoc.getText().isEmpty()
                      ||jTextField8.getText().isEmpty()||TxtCoda.getText().isEmpty()
@@ -558,7 +558,7 @@ public class NewApart extends javax.swing.JPanel {
                 return;
             }
             int ced = Integer.parseInt(cedStr);
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             // Consulta para obtener el nombre desde la base de datos
             PreparedStatement pst = cn.prepareStatement("SELECT Nombre FROM cliente WHERE Id LIKE ?");
@@ -591,7 +591,7 @@ public class NewApart extends javax.swing.JPanel {
         int fila = jTable1.getSelectedRow();
         if (fila>=0) {
             try {
-                Con con = new Con();
+                Cone con = new Cone();
                 Connection cn = con.conexion();
                 DefaultTableModel modelo2= (DefaultTableModel) jTable1.getModel();
                         PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET cantidad = cantidad + ?, preciototalcom = cantidad * preciocom, "
@@ -669,7 +669,7 @@ public class NewApart extends javax.swing.JPanel {
 
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         if (TxtCoda.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, """
@@ -752,7 +752,7 @@ public class NewApart extends javax.swing.JPanel {
     }
     private boolean clienteExisteEnBD() {
         String consulta = "SELECT COUNT(*) FROM cliente WHERE Id = ?";
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         try{
             int ced = Integer.parseInt(TxtDoc.getText());

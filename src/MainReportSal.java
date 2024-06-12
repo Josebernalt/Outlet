@@ -154,7 +154,7 @@ public class MainReportSal extends javax.swing.JPanel {
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_jLabel5MouseExited
     public class Reporte {
-        public static void generarReporteMes (Con con, Document documento){
+        public static void generarReporteMes (Cone con, Document documento){
             try {
                 int año = LocalDate.now().getYear();
                 String añoAct = String.valueOf(año);
@@ -253,7 +253,7 @@ public class MainReportSal extends javax.swing.JPanel {
             PdfWriter.getInstance(documento, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Salidas/Mensuales/"
                     + "Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf"));
             documento.open();
-            Con con = new Con();
+            Cone con = new Cone();
             Reporte.generarReporteMes(con, documento);
             documento.close();
             String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/Salidas/Mensuales/"
@@ -274,7 +274,7 @@ public class MainReportSal extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabel3MouseClicked
         public class ReporteAnual {
-        public static void GenerarReporteAnual (Con con, Document documento){
+        public static void GenerarReporteAnual (Cone con, Document documento){
             try {
                 int año = LocalDate.now().getYear();
                 String añoAct = String.valueOf(año);
@@ -350,7 +350,7 @@ public class MainReportSal extends javax.swing.JPanel {
             PdfWriter.getInstance(documento, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Salidas/Anuales/"
                     + "Reprote de Salidas del " + añoAct + ".pdf"));
             documento.open();
-            Con con = new Con();
+            Cone con = new Cone();
             ReporteAnual.GenerarReporteAnual(con, documento);
             documento.close();
             String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/Salidas/Anuales/"

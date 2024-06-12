@@ -32,7 +32,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -63,7 +63,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -94,7 +94,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -125,7 +125,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -151,7 +151,7 @@ public class Logica {
         c.setModel(combo);
         Prenda2 p2 = new Prenda2();
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT Prenda Prenda FROM tipoprend");
@@ -176,7 +176,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -211,7 +211,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -247,7 +247,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -276,7 +276,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -304,7 +304,7 @@ public class Logica {
         PreparedStatement pst = null;
         ResultSet Rs = null;
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);
             Rs = pst.executeQuery();
@@ -332,7 +332,7 @@ public class Logica {
         ResultSet rs = null;
         try
         {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);                        
             rs = pst.executeQuery();
@@ -359,7 +359,7 @@ public class Logica {
         String serie="";
         String sql= "Select max(cod_ven) from venta";
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             pst = cn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -377,7 +377,7 @@ public class Logica {
          String serie="";
          String sql= "Select max(número) from salida";
          try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = (Connection) con.conexion();
              pst = cn.prepareStatement(sql);
              rs = pst.executeQuery();
@@ -395,7 +395,7 @@ public class Logica {
          String serie="";
          String sql= "Select max(cod_p) from prenda";
          try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = (Connection) con.conexion();
              pst = cn.prepareStatement(sql);
              rs = pst.executeQuery();
@@ -413,7 +413,7 @@ public class Logica {
          String serie="";
          String sql= "Select max(cod_a) from apartado";
          try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = (Connection) con.conexion();
              pst = cn.prepareStatement(sql);
              rs = pst.executeQuery();

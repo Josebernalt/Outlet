@@ -188,7 +188,7 @@ public class RemoveProduct extends javax.swing.JPanel {
                                               Por favor ingrese los valores solicitados""",
                          "Error", JOptionPane.ERROR_MESSAGE);
         }else{
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion(); 
             int num = Integer.valueOf(jTextField1.getText());
             try {

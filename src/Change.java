@@ -298,7 +298,7 @@ public class Change extends javax.swing.JPanel {
     private void TxtCodFacKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodFacKeyReleased
         buscarVenta(TxtCodFac.getText());
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             PreparedStatement pst = null;
             ResultSet rs = null;
@@ -347,7 +347,7 @@ public class Change extends javax.swing.JPanel {
         int fila = TableEdit.getSelectedRow();
         if (fila >= 0) {
             try {
-                Con con = new Con();
+                Cone con = new Cone();
                 Connection cn = con.conexion();
                 String codFac = TxtCodFac.getText();
                 DefaultTableModel modelo2 = (DefaultTableModel) TableEdit.getModel();
@@ -398,7 +398,7 @@ public class Change extends javax.swing.JPanel {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             if (TxtEfe.getText().isEmpty()|| TxtName.getText().isEmpty()||TxtCodFac.getText().isEmpty()
                 ||TxtTotal1.getText().isEmpty()) {
@@ -507,7 +507,7 @@ public class Change extends javax.swing.JPanel {
     }
     public void Renovar(){
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             if (TxtName.getText().isEmpty()||TxtName.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, """
@@ -570,7 +570,7 @@ public class Change extends javax.swing.JPanel {
     }
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         if (TxtCodPre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, """
@@ -636,7 +636,7 @@ public class Change extends javax.swing.JPanel {
     }
     public void Pdf() throws SQLException{
         try{
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              PreparedStatement pst = null;
              ResultSet rs = null;

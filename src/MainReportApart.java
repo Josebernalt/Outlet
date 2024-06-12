@@ -123,7 +123,7 @@ public class MainReportApart extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
     public void pdfAct() throws SQLException, IOException{
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             Document repVen = new Document(PageSize.LETTER);
             repVen.setMargins(72, 72, 72, 72);

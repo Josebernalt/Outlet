@@ -327,7 +327,7 @@ public class EditarApart extends javax.swing.JPanel {
         int fila = jTable1.getSelectedRow();
         if (fila>=0) {
             try {
-                Con con = new Con();
+                Cone con = new Cone();
                 Connection cn = con.conexion();
                 String codApa = TxtCoda.getText();
                 DefaultTableModel modelo2= (DefaultTableModel) jTable1.getModel();
@@ -398,7 +398,7 @@ public class EditarApart extends javax.swing.JPanel {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             if (TxtCelular.getText().isEmpty()||TxtCoda.getText().isEmpty() || TxtAbonado.getText().isEmpty() || TxtAbono.getText().isEmpty() || TxtCoda.getText().isEmpty() 
                 || TxtDoc.getText().isEmpty() || TxtFecha.getText().isEmpty() || TxtName.getText().isEmpty() 
@@ -532,7 +532,7 @@ public class EditarApart extends javax.swing.JPanel {
 
     public void accionEnter() {
         try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              int cedu = Integer.parseInt(TxtDoc.getText());
                  PreparedStatement pstc = cn.prepareStatement("SELECT cod_a FROM apartado WHERE Cliente_id LIKE ?");
@@ -579,7 +579,7 @@ public class EditarApart extends javax.swing.JPanel {
         return suma;
     }
     public String ejecutarConsulta(String sql, String parametro, String campo) {
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         try {
                 PreparedStatement pst = cn.prepareStatement(sql);
@@ -602,7 +602,7 @@ public class EditarApart extends javax.swing.JPanel {
     }
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         if (TxtCoda.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, """
@@ -667,7 +667,7 @@ public class EditarApart extends javax.swing.JPanel {
     }
     public void Renovar(){
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = con.conexion();
             if (TxtName.getText().isEmpty()||TxtDoc.getText().isEmpty()
                 ||TxtCelular.getText().isEmpty()||TxtCoda.getText().isEmpty()) {

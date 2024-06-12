@@ -190,7 +190,7 @@ public class NewSal extends javax.swing.JPanel {
     
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         try {
-            Con con = new Con();
+            Cone con = new Cone();
             Connection cn = (Connection) con.conexion();
             if (TxtDesSa.getText().isEmpty()||jDateChooser1.getDate()== null|| TxtNumSa.getText().isEmpty()||TxtPreSa.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, """

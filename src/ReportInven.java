@@ -117,7 +117,7 @@ public class ReportInven extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRepMenMouseExited
     @SuppressWarnings("PublicInnerClass")
     public class Reporte {
-        public static void GenerarReporteInv(Con con, Document repInv) throws IOException{
+        public static void GenerarReporteInv(Cone con, Document repInv) throws IOException{
             try {
                 repInv.setMargins(72, 72, 72, 72);
                 Connection cn = con.conexion();
@@ -216,7 +216,7 @@ public class ReportInven extends javax.swing.JPanel {
             PdfWriter.getInstance(repInv, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop"
                     + "/Inventario/Reporte de Inventario.pdf"));
             repInv.open();
-            Con con = new Con();
+            Cone con = new Cone();
             Reporte.GenerarReporteInv(con, repInv);
             repInv.close();
         } catch (DocumentException | FileNotFoundException e) {

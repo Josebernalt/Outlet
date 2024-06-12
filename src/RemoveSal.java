@@ -189,7 +189,7 @@ public class RemoveSal extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel1MouseEntered
   
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = (Connection) con.conexion();
         int num = Integer.valueOf(TxtNumSa.getText());
         try {

@@ -347,7 +347,7 @@ public class AbonarApart extends javax.swing.JPanel {
                         + "cuando ya esta pago, por favor selecciones sacar", "Atención", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              if (TxtCod.getText().isEmpty()||TxtName.getText().isEmpty()
                      ||TxtSaldo.getText().isEmpty()||TxtAbona.getText().isEmpty()
@@ -523,7 +523,7 @@ public class AbonarApart extends javax.swing.JPanel {
     private void BtnSacarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnSacarMouseClicked
         if (TxtNuevoSaldo.getText().equals("0")) {
             try {
-                Con con = new Con();
+                Cone con = new Cone();
                 Connection cn = con.conexion();
                 DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
                 int nuevoA = Integer.valueOf(TxtAbona.getText());
@@ -740,7 +740,7 @@ public class AbonarApart extends javax.swing.JPanel {
         jTable2.setModel(modelo);
     }
     public String ejecutarConsulta(String sql, String parametro, String campo) {
-        Con con = new Con();
+        Cone con = new Cone();
         Connection cn = con.conexion();
         try {
                 PreparedStatement pst = cn.prepareStatement(sql);
@@ -758,7 +758,7 @@ public class AbonarApart extends javax.swing.JPanel {
     }
     public void accionEnter() {
         try {
-             Con con = new Con();
+             Cone con = new Cone();
              Connection cn = con.conexion();
              int cedu = Integer.parseInt(TxtName.getText());
                  PreparedStatement pstc = cn.prepareStatement("SELECT cod_a FROM apartado WHERE Cliente_id LIKE ?");
