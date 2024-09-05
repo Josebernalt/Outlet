@@ -25,6 +25,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -48,11 +50,8 @@ public class Change extends javax.swing.JPanel {
     
     public Change() {
         initComponents();
-        Logica logica = new Logica();
-        DefaultTableModel modelo = logica.mostrarVentas();
-        TableEdit.setModel(modelo);
-        jTable2.setModel(modelo);
         TxtCodFac.requestFocus();
+       
     }
 
     /**
@@ -145,15 +144,18 @@ public class Change extends javax.swing.JPanel {
 
         TableEdit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Prenda", "Cantidad", "Descripción", "Precio"
             }
         ));
+        TableEdit.setCellSelectionEnabled(true);
+        TableEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TableEditKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(TableEdit);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 290, 100));
@@ -198,13 +200,10 @@ public class Change extends javax.swing.JPanel {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Prenda", "Cantidad", "Descripción", "Precio"
             }
         ));
         jTable2.setEnabled(false);
@@ -253,6 +252,7 @@ public class Change extends javax.swing.JPanel {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, 20));
 
         TxtTotal1.setEditable(false);
+        TxtTotal1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(TxtTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
@@ -335,7 +335,8 @@ public class Change extends javax.swing.JPanel {
             while (prec.next()) {
                 String preci = prec.getString("preciot");
                 TxtTotal.setText(preci);
-                }
+                TxtTotal1.setText(preci);
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showInputDialog(null, "Número incorrecto insertado","Información",JOptionPane.WARNING_MESSAGE);
         } catch (SQLException e) {
@@ -351,18 +352,16 @@ public class Change extends javax.swing.JPanel {
                 Connection cn = con.conexion();
                 String codFac = TxtCodFac.getText();
                 DefaultTableModel modelo2 = (DefaultTableModel) TableEdit.getModel();
+                int idEli = Integer.parseInt(modelo2.getValueAt(fila, 0).toString());
+                int canEli = Integer.parseInt(modelo2.getValueAt(fila, 1).toString());
                 PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET cantidad = cantidad + ?, preciototalcom = cantidad * preciocom, "
                         + "preciototalven = cantidad * precioven WHERE cod_p=?");
                 PreparedStatement pst1 = cn.prepareStatement("DELETE FROM ventaprenda WHERE Id_ven = ?");
                 pst1.setString(1, codFac);
                 pst1.executeUpdate();
-                for (int i = 0; i < modelo2.getRowCount(); i++) {
-                    int id = Integer.parseInt(modelo2.getValueAt(i, 0).toString());
-                    int cantidad = Integer.parseInt(modelo2.getValueAt(i, 1).toString());
-                    pst.setInt(1, cantidad);
-                    pst.setInt(2, id);
-                    pst.addBatch();
-                }
+                pst.setInt(1, canEli);
+                pst.setInt(2, idEli);
+                pst.executeUpdate();
                 int[] n1 = pst.executeBatch();
                 boolean Exito = true;
                 for (int i = 0; i < n1.length; i++) {
@@ -374,6 +373,7 @@ public class Change extends javax.swing.JPanel {
                 if (Exito) {
                     JOptionPane.showMessageDialog(null, "Se ha actualizado la cantidad correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     modelo2.removeRow(fila); // Elimina la fila del modelo
+                    TxtTotal1.setText(Integer.toString(total()));
                 } else {
                     JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -498,6 +498,12 @@ public class Change extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TxtEfeKeyTyped
 
+    private void TableEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TableEditKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            TxtTotal1.setText(Integer.toString(total()));
+        }
+    }//GEN-LAST:event_TableEditKeyPressed
+
     public void buscarVenta (String buscar){
         Logica lg = new Logica();
         DefaultTableModel modelo = lg.buscarVentas(buscar);
@@ -505,68 +511,13 @@ public class Change extends javax.swing.JPanel {
         TableEdit.setModel(modelo);
         jTable2.setModel(modelo1);
     }
-    public void Renovar(){
-        try {
-            Cone con = new Cone();
-            Connection cn = con.conexion();
-            if (TxtName.getText().isEmpty()||TxtName.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, """
-                    Atención:
-                    Por favor ingrese los valores solicitados""",  
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            }else{
-                int opcion = JOptionPane.showConfirmDialog(null,"Recuerda que al restaurar la venta se eliminarán "
-                        + "del historial, por lo tanto deberás tener presente"
-                        + " la tabla de referencia. ¿Estás seguro de realizar esta acción?", "Confirmación", 
-                        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-                if (opcion == JOptionPane.YES_OPTION) {
-                    // El usuario hizo clic en "Sí"
-                    System.out.println("Acción confirmada. Realizando la acción...");
-                    DefaultTableModel modelo2= (DefaultTableModel) TableEdit.getModel();
-                        PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET cantidad = cantidad + ?, preciototalcom = cantidad * preciocom, "
-                         + "preciototalcom = cantidad * preciocom, preciototalven = cantidad * precioven WHERE cod_p=?") ;
-                    for (int i = 0; i < modelo2.getRowCount(); i++){
-                        int id = Integer.parseInt (modelo2.getValueAt(i, 0).toString ());
-                        int cantidad = Integer.parseInt(modelo2.getValueAt(i, 1).toString());
-                        pst.setInt(1, cantidad);
-                        pst.setInt(2, id);
-                        pst.addBatch();
-                    }
-                    int codFa = Integer.parseInt(TxtCodFac.getText());
-                    PreparedStatement psteliminar = cn.prepareStatement("DELETE FROM ventaprenda WHERE Id_ven = ?");
-                    psteliminar.setInt(1, codFa);
-                    int n = psteliminar.executeUpdate();
-                    int[] n1 = pst.executeBatch();
-                    boolean Exito = true;
-                    for (int i = 0; i < n1.length; i++) {
-                        if (n1[i] <= 0) { 
-                            Exito = false;
-                            break;
-                        }
-                    }
-                    if(Exito && n>0){
-                    JOptionPane.showMessageDialog(null, "Se ha eliminado el valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
-                    while (modelo2.getRowCount() > 0) {
-                        modelo2.removeRow(0);
-                    }
-                    }
-                } else if (opcion == JOptionPane.NO_OPTION) {
-                    // El usuario hizo clic en "No"
-                    JOptionPane.showMessageDialog(null, "Acción cancelada. No se realizará ninguna acción.", "Confirmado", JOptionPane.CLOSED_OPTION);
-                    // Aquí puedes manejar la situación si el usuario decide no realizar la acción
-                } 
-            }
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar"+e, "Erros", JOptionPane.ERROR_MESSAGE);
+    private int total() {
+        int rowCount = TableEdit.getRowCount();
+        int sum = 0;
+        for (int i = 0; i < rowCount; i++) {
+            sum += Integer.parseInt(TableEdit.getValueAt(i, 3).toString());
         }
-    }
-    private int total (){
-        int contar = TableEdit.getRowCount();
-        int suma = 0;
-        for (int i = 0; i < contar; i++) {
-            suma += Integer.parseInt(TableEdit.getValueAt(i, 3).toString());
-        }
-        return suma;
+        return sum;
     }
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
@@ -623,7 +574,7 @@ public class Change extends javax.swing.JPanel {
                         TableEdit.setValueAt(cant1 + cant2, i, 1); // actualizar la cantidad de la fila actual
                         TableEdit.setValueAt(prec1 + prec2, i, 3); // actualizar el precio de la fila actual
                         // eliminar la fila comparada
-                        mod.removeRow(j);
+                        getModel().removeRow(j);
                         // actualizar el número de filas y el índice de la fila comparada
                         contar--;
                         j--;
@@ -658,7 +609,7 @@ public class Change extends javax.swing.JPanel {
              Document document = new Document(pageSize);
              document.setMargins(0, 0, 0, 0);
              Image img;
-             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("Factura.pdf"));
+             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("src/Facturas/Cambios/Facturadecambio.pdf"));
              document.open();
              Image imagen = Image.getInstance("src/imagenes/Logo.png");
              imagen.scaleToFit(50, 50);
@@ -734,7 +685,7 @@ public class Change extends javax.swing.JPanel {
     }
     void print(){
         try {
-             String rutaArchivoPDF = "Factura.pdf";
+             String rutaArchivoPDF = "src/Facturas/Cambios/Facturadecambio.pdf";
              if (Desktop.isDesktopSupported()) {
                  Desktop desktop = Desktop.getDesktop();
                  File archivoPDF = new File(rutaArchivoPDF);
@@ -783,12 +734,11 @@ public class Change extends javax.swing.JPanel {
         return model;
     }
 
-    /**
-     * @param model the model to set
-     */
-    public void setModel(DefaultTableModel model) {
+    private void setModel(DefaultTableModel model) {
         this.model = model;
     }
+
+    
 }
 
 

@@ -197,6 +197,7 @@ public class RemoveProduct extends javax.swing.JPanel {
                 int n = pst.executeUpdate();
                 if(n>0){
                     JOptionPane.showMessageDialog(null, "Se ha eliminado el valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
+                    buscarPrenda();
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error al guardar"+ex, "Ingreso", JOptionPane.ERROR_MESSAGE);
@@ -217,6 +218,11 @@ public class RemoveProduct extends javax.swing.JPanel {
     public void buscarprenda(String buscar){
         Logica logica = new Logica();
         DefaultTableModel modelo = logica.buscarprendas(buscar);
+        jTable1.setModel(modelo);
+    }
+    public void buscarPrenda(){
+        Logica logica = new Logica();
+        DefaultTableModel modelo = logica.mostrarprendas();
         jTable1.setModel(modelo);
     }
 

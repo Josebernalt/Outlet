@@ -51,8 +51,6 @@ public class RemoveSal extends javax.swing.JPanel {
         TxtNumSa = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -114,7 +112,7 @@ public class RemoveSal extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 120, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel4.setText("Numero de salida");
@@ -145,36 +143,6 @@ public class RemoveSal extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 380, 90));
 
-        jPanel4.setBackground(new java.awt.Color(119, 171, 183));
-
-        jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Actualizar");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 30));
-
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,6 +166,7 @@ public class RemoveSal extends javax.swing.JPanel {
             int n = pst.executeUpdate();
             if(n>0){
                 JOptionPane.showMessageDialog(null, "Se ha eliminado el valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
+                buscarSalida();
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al guardar"+ex, "Ingreso", JOptionPane.ERROR_MESSAGE);
@@ -225,22 +194,6 @@ public class RemoveSal extends javax.swing.JPanel {
         Home.Prin.repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        jPanel4.setBackground(new Color(29,62,83));
-        jLabel5.setForeground(Color.white);
-    }//GEN-LAST:event_jLabel5MouseEntered
-
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        jPanel4.setBackground(new Color(119,171,183));
-        jLabel5.setForeground(Color.black);
-    }//GEN-LAST:event_jLabel5MouseExited
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Logica logica = new Logica();
-        DefaultTableModel modelo = logica.mostrarsalidas();
-        jTable1.setModel(modelo);
-    }//GEN-LAST:event_jLabel5MouseClicked
-
     private void TxtNumSaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNumSaKeyReleased
         buscarPersona(TxtNumSa.getText());
     }//GEN-LAST:event_TxtNumSaKeyReleased
@@ -258,6 +211,11 @@ public class RemoveSal extends javax.swing.JPanel {
         
         jTable1.setModel(modelo);
     }
+    public void buscarSalida (){
+        Logica logica = new Logica();
+        DefaultTableModel modelo = logica.mostrarsalidas();
+        jTable1.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtNumSa;
@@ -265,11 +223,9 @@ public class RemoveSal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

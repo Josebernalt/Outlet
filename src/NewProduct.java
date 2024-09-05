@@ -92,6 +92,9 @@ public class NewProduct extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
 
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
             }
@@ -123,6 +126,9 @@ public class NewProduct extends javax.swing.JPanel {
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 180, -1));
 
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField5KeyTyped(evt);
             }
@@ -345,6 +351,33 @@ public class NewProduct extends javax.swing.JPanel {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+
+                int can = Integer.valueOf(jTextField2.getText());
+                int com = Integer.valueOf(jTextField5.getText()); 
+                int vent1 = Integer.valueOf(jTextField6.getText());
+                int comt = com * can;
+                int ventt1 = vent1 * can;
+                String num= String.valueOf(comt);
+                String num2= String.valueOf(ventt1);
+                jTextField3.setText(num);
+                jTextField4.setText(num2);
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+
+                int can = Integer.valueOf(jTextField2.getText());
+                int com = Integer.valueOf(jTextField5.getText()); 
+                int vent1 = Integer.valueOf(jTextField6.getText());
+                int comt = com * can;
+                int ventt1 = vent1 * can;
+                String num= String.valueOf(comt);
+                String num2= String.valueOf(ventt1);
+                jTextField3.setText(num);
+                jTextField4.setText(num2);
+
+    }//GEN-LAST:event_jTextField5KeyReleased
 
     void generarproducto(){
         Logica lg = new Logica();

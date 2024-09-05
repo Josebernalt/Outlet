@@ -28,6 +28,8 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.text.JTextComponent;
 
 /*
@@ -51,6 +53,16 @@ public class Sell extends javax.swing.JPanel {
         initComponents();
         generarSerie();
         jDateChooser1.setMaxSelectableDate(new date());
+        DefaultTableModel mod = (DefaultTableModel) jTable1.getModel();
+        mod.addTableModelListener(new TableModelListener() {
+        @Override
+        public void tableChanged(TableModelEvent e) {
+            if (e.getType() == TableModelEvent.UPDATE) {
+                total2();
+                TxtTot.setText(Integer.toString(total()));
+            }
+        }
+        });
     }
 
       /**
@@ -88,8 +100,6 @@ public class Sell extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         TxtDev = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        btnDes = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -107,9 +117,6 @@ public class Sell extends javax.swing.JPanel {
         TxtCod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TxtCodKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtCodKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtCodKeyTyped(evt);
@@ -213,11 +220,6 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, 20));
 
         TxtTot.setEditable(false);
-        TxtTot.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TxtTotKeyReleased(evt);
-            }
-        });
         jPanel1.add(TxtTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 160, -1));
 
         jPanel5.setBackground(new java.awt.Color(119, 171, 183));
@@ -275,37 +277,6 @@ public class Sell extends javax.swing.JPanel {
         jLabel12.setText("devolver");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 20));
 
-        jPanel6.setBackground(new java.awt.Color(119, 171, 183));
-        jPanel6.setPreferredSize(new java.awt.Dimension(97, 30));
-
-        btnDes.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
-        btnDes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnDes.setText("descuento");
-        btnDes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDesMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDes, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDes, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, -1, -1));
-
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 440));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -324,8 +295,7 @@ public class Sell extends javax.swing.JPanel {
         Document fact = new Document(pageSize);
         fact.setMargins(0, 0, 0, 0);
         try {
-            PdfWriter writer = PdfWriter.getInstance(fact, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop"
-                    + "/Facturas/Factura.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(fact, new FileOutputStream("src/Facturas/Venta/Facturadeventa.pdf"));
             fact.open();
             Cone con = new Cone();
             Reporte.GenerarReporteInv(con, fact, writer);
@@ -338,10 +308,6 @@ public class Sell extends javax.swing.JPanel {
             Logger.getLogger(ReportInven.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void TxtCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodKeyReleased
-
-    }//GEN-LAST:event_TxtCodKeyReleased
 
     private void TxtCedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCedKeyReleased
         try {
@@ -384,10 +350,6 @@ public class Sell extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TxtCedKeyReleased
 
-    private void TxtTotKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTotKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTotKeyReleased
-
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         int fila = jTable1.getSelectedRow();
         if (fila>=0) {
@@ -395,24 +357,14 @@ public class Sell extends javax.swing.JPanel {
                 Cone con = new Cone();
                 Connection cn = con.conexion();
                 DefaultTableModel modelo2= (DefaultTableModel) jTable1.getModel();
+                int idEli = Integer.parseInt(modelo2.getValueAt(fila, 0).toString());
+                int canEli = Integer.parseInt(modelo2.getValueAt(fila, 1).toString());
                         PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET cantidad = cantidad + ?, preciototalcom = cantidad * preciocom, "
                          + "preciototalcom = cantidad * preciocom, preciototalven = cantidad * precioven WHERE cod_p=?") ;
-                    for (int i = 0; i < modelo2.getRowCount(); i++){
-                        int id = Integer.parseInt (modelo2.getValueAt(i, 0).toString ());
-                        int cantidad = Integer.parseInt(modelo2.getValueAt(i, 1).toString());
-                        pst.setInt(1, cantidad);
-                        pst.setInt(2, id);
-                        pst.addBatch();
-                    }
-                int[] n1 = pst.executeBatch();
-                boolean Exito = true;
-                for (int i = 0; i < n1.length; i++) {
-                    if (n1[i] <= 0) { 
-                        Exito = false;
-                        break;
-                    }
-                }
-                if(Exito){
+                pst.setInt(1, canEli);
+                pst.setInt(2, idEli);
+                int n1 = pst.executeUpdate();
+                if(n1 > 0){
                     JOptionPane.showMessageDialog(null, "Se ha eliminado el valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
                     getModel().removeRow(fila);
                     TxtTot.setText(Integer.toString(total()));
@@ -488,44 +440,6 @@ public class Sell extends javax.swing.JPanel {
             evt.consume();
         }
     }//GEN-LAST:event_TxtEfeKeyTyped
-
-    private void btnDesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDesMouseClicked
-        DefaultTableModel modelq = (DefaultTableModel) jTable1.getModel();
-        int colDes = 3; // Índice de la columna donde deseas establecer el valor
-        int des = 3000;
-        for (int fila = 0; fila < modelq.getRowCount(); fila++){
-            int preVen = Integer.parseInt(modelq.getValueAt(fila, colDes).toString()); // Toma el total de la fila actual
-            if (preVen <= 30000) {
-                int preConDes = preVen - des;
-                modelq.setValueAt(preConDes, fila, colDes);
-                total();
-            }if (preVen <= 60000 && preVen > 30000) {
-                int preConDes = preVen - des;
-                modelq.setValueAt(preConDes, fila, colDes);
-                total();
-            }if (preVen <= 100000 && preVen > 60000) {
-                int preConDesCie = preVen - des;
-                modelq.setValueAt(preConDesCie, fila, colDes);
-                total();
-            }if (preVen <= 150000 && preVen > 100000) {
-                int preConDesMasCie = preVen - des;
-                modelq.setValueAt(preConDesMasCie, fila, colDes);
-                total();
-            }
-        }
-        TxtTot.setText(Integer.toString(total()));
-        btnDes.setEnabled(false);
-    }//GEN-LAST:event_btnDesMouseClicked
-
-    private void btnDesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDesMouseEntered
-        jPanel6.setBackground(new Color(29,62,83));
-        btnDes.setForeground(Color.white);
-    }//GEN-LAST:event_btnDesMouseEntered
-
-    private void btnDesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDesMouseExited
-        jPanel6.setBackground(new Color(119,171,183));
-        btnDes.setForeground(Color.black);
-    }//GEN-LAST:event_btnDesMouseExited
 
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
@@ -631,8 +545,7 @@ public class Sell extends javax.swing.JPanel {
     }
     static void print(){
         try {
-             String rutaArchivoPDF = "C:/Users/Jose Eliud Bernal/Desktop"
-                    + "/Facturas/Factura.pdf";
+             String rutaArchivoPDF = "src/Facturas/Venta/Facturadeventa.pdf";
              if (Desktop.isDesktopSupported()) {
                  Desktop desktop = Desktop.getDesktop();
                  File archivoPDF = new File(rutaArchivoPDF);
@@ -643,10 +556,6 @@ public class Sell extends javax.swing.JPanel {
         } catch (IOException e) {
             System.err.println("Error al imprimir el archivo: " + e.getMessage());     
         }
-    }
-
-    public void actionPerformed() {
-        btnDes.setEnabled(false);
     }
     
     @SuppressWarnings("PublicInnerClass")
@@ -722,7 +631,7 @@ public class Sell extends javax.swing.JPanel {
                     Font font = new Font(Font.FontFamily.HELVETICA, 8);
                     Font font1 = new Font(Font.FontFamily.HELVETICA, 12);
                     fact.add(new Paragraph("\n"));
-                    Image imagen = Image.getInstance("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Logo.png");
+                    Image imagen = Image.getInstance("src/imagenes/Logo.png");
                     imagen.scaleToFit(70, 70); // Ajusta el tamaño de la imagen
                     float x = (fact.getPageSize().getWidth() - imagen.getScaledWidth()) / 2;
                     float y = fact.getPageSize().getHeight() - imagen.getScaledHeight();
@@ -787,8 +696,7 @@ public class Sell extends javax.swing.JPanel {
                     }
                     fact.close();                  
                     JOptionPane.showMessageDialog(null, "Reporte creado");
-                    String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop"
-                        + "/Facturas/Factura.pdf";
+                    String rutaPDF = "src/Facturas/Venta/Facturadeventa.pdf";
                     if (Desktop.isDesktopSupported()) {
                         Desktop desktop = Desktop.getDesktop();
                         File archivoPDF = new File(rutaPDF);
@@ -817,6 +725,16 @@ public class Sell extends javax.swing.JPanel {
         }
         }
     }
+    private void total2() {
+    int total = 0;
+    for (int i = 0; i < jTable1.getRowCount(); i++) {
+        Object value = jTable1.getValueAt(i, 3); // Asegúrate de que 3 sea el índice correcto de la columna de precios
+        if (value instanceof Number) {
+            total += ((Number) value).intValue();
+        }
+    }
+    TxtTot.setText(String.valueOf(total));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTextField TxtCed;
@@ -827,7 +745,6 @@ public class Sell extends javax.swing.JPanel {
     private static javax.swing.JTextField TxtEfe;
     private static javax.swing.JTextField TxtNombre;
     private static javax.swing.JTextField TxtTot;
-    private javax.swing.JLabel btnDes;
     private static com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -844,7 +761,6 @@ public class Sell extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

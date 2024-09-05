@@ -1,6 +1,8 @@
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -25,7 +27,7 @@ public class EditProduct extends javax.swing.JPanel {
         lg.cargarcombo(jComboBox1);
         DefaultTableModel modelo = lg.mostrarprendas();
         jTable1.setModel(modelo);
-        jTextField1.requestFocus();
+        txtCod.requestFocus();
     }
 
     /**
@@ -40,20 +42,20 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCod = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCan = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDes = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtTotCom = new javax.swing.JTextField();
+        txtTotVen = new javax.swing.JTextField();
+        txtCom = new javax.swing.JTextField();
+        txtVen = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -76,15 +78,18 @@ public class EditProduct extends javax.swing.JPanel {
         jLabel2.setText("editar productos");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCodKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField1KeyReleased(evt);
+                txtCodKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                txtCodKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 175, -1));
+        jPanel1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 175, -1));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel4.setText("Prenda");
@@ -97,20 +102,23 @@ public class EditProduct extends javax.swing.JPanel {
         jLabel5.setText("Cantidad");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
 
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCanKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
+                txtCanKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 175, -1));
+        jPanel1.add(txtCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 175, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel6.setText("Descripción");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDes.setColumns(20);
+        txtDes.setRows(5);
+        jScrollPane1.setViewportView(txtDes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 510, 70));
 
@@ -122,28 +130,31 @@ public class EditProduct extends javax.swing.JPanel {
         jLabel8.setText("valor Venta Total");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
-        jTextField3.setEditable(false);
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 170, -1));
+        txtTotCom.setEditable(false);
+        jPanel1.add(txtTotCom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 170, -1));
 
-        jTextField4.setEditable(false);
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 170, -1));
+        txtTotVen.setEditable(false);
+        jPanel1.add(txtTotVen, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 170, -1));
 
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
-            }
-        });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 170, -1));
-
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField6KeyReleased(evt);
+                txtComKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField6KeyTyped(evt);
+                txtComKeyTyped(evt);
             }
         });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 170, -1));
+        jPanel1.add(txtCom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 170, -1));
+
+        txtVen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtVenKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVenKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtVen, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel9.setText("valor de Compra");
@@ -268,21 +279,21 @@ public class EditProduct extends javax.swing.JPanel {
         try {
              Cone con = new Cone();
              Connection cn = con.conexion();
-             if (jTextField1.getText().isEmpty()|jTextField2.getText().isEmpty()|jTextField3.getText().isEmpty()|jTextField4.getText().isEmpty()
-                     |jTextField5.getText().isEmpty()|jTextField6.getText().isEmpty()|jTextArea1.getText().isEmpty()) {
+             if (txtCod.getText().isEmpty()|txtCan.getText().isEmpty()|txtTotCom.getText().isEmpty()|txtTotVen.getText().isEmpty()
+                     |txtCom.getText().isEmpty()|txtVen.getText().isEmpty()|txtDes.getText().isEmpty()) {
                  JOptionPane.showMessageDialog(null, """
                                               Atención:
                                               Por favor ingrese los valores solicitados""",
                          "Error", JOptionPane.ERROR_MESSAGE);
             }else {
-                 int cod = Integer.valueOf(jTextField1.getText());
+                 int cod = Integer.valueOf(txtCod.getText());
                  int pren = jComboBox1.getSelectedIndex();
-                 int cant = Integer.valueOf(jTextField2.getText());
-                 String desc = jTextArea1.getText();
-                 int comp = Integer.valueOf(jTextField5.getText());
-                 int vent = Integer.valueOf(jTextField6.getText());
-                 int compt = Integer.valueOf(jTextField3.getText());
-                 int ventt = Integer.valueOf(jTextField4.getText());
+                 int cant = Integer.valueOf(txtCan.getText());
+                 String desc = txtDes.getText();
+                 int comp = Integer.valueOf(txtCom.getText());
+                 int vent = Integer.valueOf(txtVen.getText());
+                 int compt = Integer.valueOf(txtTotCom.getText());
+                 int ventt = Integer.valueOf(txtTotVen.getText());
                      PreparedStatement pst = cn.prepareStatement("UPDATE prenda SET TipoPrend=?, cantidad=?, descripción=?, preciocom=?, precioven=?, preciototalcom=?, preciototalven=? WHERE Cod_p=?");
                      pst.setInt(1, pren);
                      pst.setInt(2, cant);
@@ -295,15 +306,15 @@ public class EditProduct extends javax.swing.JPanel {
                      int n = pst.executeUpdate();
                      if(n>0){
                          JOptionPane.showMessageDialog(null, "Se ha registrado los valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
-                         jTextField2.setText(null);
-                         jTextField1.requestFocus();
-                         jTextField1.setText(null);
-                         jTextField3.setText(null);
-                         jTextField4.setText(null);
-                         jTextField5.setText(null);
-                         jTextField6.setText(null);
+                         txtCan.setText(null);
+                         txtCod.requestFocus();
+                         txtCod.setText(null);
+                         txtTotCom.setText(null);
+                         txtTotVen.setText(null);
+                         txtCom.setText(null);
+                         txtVen.setText(null);
                          jComboBox1.setSelectedItem(null);
-                         jTextArea1.setText(null);
+                         txtDes.setText(null);
                      }
                  }
         } catch (SQLException ex) {
@@ -311,57 +322,132 @@ public class EditProduct extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-        buscarprenda(jTextField1.getText());
-    }//GEN-LAST:event_jTextField1KeyReleased
+    private void txtCodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyReleased
+        buscarprenda(txtCod.getText());
+    }//GEN-LAST:event_txtCodKeyReleased
 
-    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
-        if (jTextField2.getText().isEmpty() || jTextField5.getText().isEmpty()) {
+    private void txtVenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVenKeyReleased
+        if (txtCan.getText().isEmpty() || txtCom.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Digita por favor la cantidad y el precio de compra para realizar rl proceso de manera correcta");
         } else 
             try {
-            int can = Integer.valueOf(jTextField2.getText());
-            int com = Integer.valueOf(jTextField5.getText());
-            int vent1 = Integer.valueOf(jTextField6.getText());
+            int can = Integer.valueOf(txtCan.getText());
+            int com = Integer.valueOf(txtCom.getText());
+            int vent1 = Integer.valueOf(txtVen.getText());
             int comt = can*com;
             int ventt1 = vent1*can;
             String num = String.valueOf(comt);
             String num2 = String.valueOf(ventt1);
-            jTextField3.setText(num);
-            jTextField4.setText(num2);
+            txtTotCom.setText(num);
+            txtTotVen.setText(num2);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error: Ingresa valores numéricos válidos.");
         }
-    }//GEN-LAST:event_jTextField6KeyReleased
+    }//GEN-LAST:event_txtVenKeyReleased
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void txtCodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyTyped
         char c = evt.getKeyChar();
         if (c<'0'||c>'9') {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_txtCodKeyTyped
 
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+    private void txtCanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCanKeyTyped
         char c = evt.getKeyChar();
         if (c<'0'||c>'9') {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_txtCanKeyTyped
 
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+    private void txtComKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtComKeyTyped
         char c = evt.getKeyChar();
         if (c<'0'||c>'9') {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField5KeyTyped
+    }//GEN-LAST:event_txtComKeyTyped
 
-    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+    private void txtVenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVenKeyTyped
         char c = evt.getKeyChar();
         if (c<'0'||c>'9') {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField6KeyTyped
+    }//GEN-LAST:event_txtVenKeyTyped
 
+    private void txtCodKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            buscarInformacion();            
+        }
+    }//GEN-LAST:event_txtCodKeyPressed
+
+    private void txtCanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCanKeyReleased
+        if (txtCan.getText().isEmpty() || txtCom.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Digita por favor la cantidad y el precio de compra para realizar rl proceso de manera correcta");
+        } else 
+            try {
+            int can = Integer.valueOf(txtCan.getText());
+            int com = Integer.valueOf(txtCom.getText());
+            int vent1 = Integer.valueOf(txtVen.getText());
+            int comt = can*com;
+            int ventt1 = vent1*can;
+            String num = String.valueOf(comt);
+            String num2 = String.valueOf(ventt1);
+            txtTotCom.setText(num);
+            txtTotVen.setText(num2);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error: Ingresa valores numéricos válidos.");
+        }
+    }//GEN-LAST:event_txtCanKeyReleased
+
+    private void txtComKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtComKeyReleased
+        if (txtCan.getText().isEmpty() || txtCom.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Digita por favor la cantidad y el precio de compra para realizar rl proceso de manera correcta");
+        } else 
+            try {
+            int can = Integer.valueOf(txtCan.getText());
+            int com = Integer.valueOf(txtCom.getText());
+            int vent1 = Integer.valueOf(txtVen.getText());
+            int comt = can*com;
+            int ventt1 = vent1*can;
+            String num = String.valueOf(comt);
+            String num2 = String.valueOf(ventt1);
+            txtTotCom.setText(num);
+            txtTotVen.setText(num2);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error: Ingresa valores numéricos válidos.");
+        }
+    }//GEN-LAST:event_txtComKeyReleased
+    public String conection(String sql, String parametro, String Campo){
+        Cone con = new Cone();
+        Connection cn = con.conexion();
+        try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1, parametro);
+            ResultSet rs = pst.executeQuery();
+            StringBuilder result = new StringBuilder();
+            while (rs.next()) {                
+                result.append(rs.getString(Campo));
+            }
+            return result.toString();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos"+ e);
+            return null;
+        }
+    }
+    public void buscarInformacion(){
+        String codPro = txtCod.getText();
+        String can = conection("SELECT cantidad FROM prenda WHERE cod_p LIKE ?", codPro, "cantidad");
+        txtCan.setText(can);
+        String des = conection("SELECT descripción FROM prenda WHERE cod_p LIKE ?", codPro, "descripción");
+        txtDes.setText(des);
+        String com = conection("SELECT preciocom FROM prenda WHERE cod_p LIKE ?", codPro, "preciocom");
+        txtCom.setText(com);
+        String ven = conection("SELECT precioven FROM prenda WHERE cod_p LIKE ?", codPro, "precioven");
+        txtVen.setText(ven);
+        String comTot = conection("SELECT preciototalcom FROM prenda WHERE cod_p LIKE ?", codPro, "preciototalcom");
+        txtTotCom.setText(comTot);
+        String venTot = conection("SELECT preciototalven FROM prenda WHERE cod_p LIKE ?", codPro, "preciototalven");
+        txtTotVen.setText(venTot);
+    }
     public void buscarprenda(String buscar){
         Logica logica = new Logica();
         DefaultTableModel modelo = logica.buscarprendas(buscar);
@@ -387,12 +473,12 @@ public class EditProduct extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtCan;
+    private javax.swing.JTextField txtCod;
+    private javax.swing.JTextField txtCom;
+    private javax.swing.JTextArea txtDes;
+    private javax.swing.JTextField txtTotCom;
+    private javax.swing.JTextField txtTotVen;
+    private javax.swing.JTextField txtVen;
     // End of variables declaration//GEN-END:variables
 }

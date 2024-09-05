@@ -3,6 +3,7 @@ import java.sql.PreparedStatement;
 import javax.swing.*;
 import java.sql.*;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -140,6 +141,9 @@ public class EditSal extends javax.swing.JPanel {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, 20));
 
         TxtNumSa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxtNumSaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TxtNumSaKeyReleased(evt);
             }
@@ -262,6 +266,37 @@ public class EditSal extends javax.swing.JPanel {
         if (c<'0'||c>'9') 
             evt.consume();
     }//GEN-LAST:event_TxtNumSaKeyTyped
+
+    private void TxtNumSaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNumSaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            llenarCampos();
+        }
+    }//GEN-LAST:event_TxtNumSaKeyPressed
+    public String ejecutarConsulta(String sql, String parametro, String campo) {
+        Cone con = new Cone();
+        Connection cn = con.conexion();
+        try {
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setString(1, parametro);
+                ResultSet rs = pst.executeQuery();
+                StringBuilder results = new StringBuilder();
+                while (rs.next()) {
+                results.append(rs.getString(campo));
+                }
+                return results.toString();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al conectar");
+                return null;
+            }
+    }
+    public void llenarCampos(){
+        String idSal = TxtNumSa.getText();
+        String des = ejecutarConsulta("SELECT descripción FROM salida WHERE número LIKE ?", idSal, "descripción");
+        TxtDesSa.setText(des);
+        String preGas = ejecutarConsulta("SELECT Precio FROM salida WHERE número LIKE ?", idSal, "Precio");
+        TxtPreSa.setText(preGas);
+    }
+    
     public void buscarPersona (String buscar){
         Logica logica = new Logica();
         
