@@ -71,7 +71,7 @@
                   <Font name="Perpetua Titling MT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="abonar apartado"/>
+                <Property name="text" type="java.lang.String" value="ABONAR APARTADO"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
@@ -112,7 +112,7 @@
                   <Font name="Perpetua Titling MT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Nuevo apartado"/>
+                <Property name="text" type="java.lang.String" value="NUEVO APARTADO"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Events>
@@ -128,7 +128,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Perpetua Titling MT" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="MAnejo de apartados"/>
+            <Property name="text" type="java.lang.String" value="MANEJO DE APARTADOS"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -167,7 +167,7 @@
                   <Font name="Perpetua Titling MT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="reporte de apartados"/>
+                <Property name="text" type="java.lang.String" value="REPORTE DE APARTADOS"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseClicked"/>
@@ -208,7 +208,7 @@
                   <Font name="Perpetua Titling MT" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="editar apartado"/>
+                <Property name="text" type="java.lang.String" value="EDITAR APARTADO"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[140, 14]"/>
                 </Property>

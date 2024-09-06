@@ -52,7 +52,6 @@ public class ReportInven extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnRepMen = new javax.swing.JLabel();
 
@@ -64,20 +63,14 @@ public class ReportInven extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        jLabel1.setText("reporte de inventario");
+        jLabel1.setText("REPORTE DE INVENTARIO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Se indica acontinuación que el siguiente reporte ");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 300, 100));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
 
         btnRepMen.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         btnRepMen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRepMen.setText("Generar reporte");
+        btnRepMen.setText("GENERAR REPORTE");
         btnRepMen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRepMenMouseClicked(evt);
@@ -101,7 +94,7 @@ public class ReportInven extends javax.swing.JPanel {
             .addComponent(btnRepMen, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 260, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 260, 30));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -230,7 +223,6 @@ public class ReportInven extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnRepMen;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

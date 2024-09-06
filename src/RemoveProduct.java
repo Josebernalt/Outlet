@@ -53,11 +53,11 @@ public class RemoveProduct extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel1.setText("Código");
+        jLabel1.setText("CÓDIGO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("eliminar productos");
+        jLabel2.setText("ELIMINAR PRODUCTOS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -75,7 +75,7 @@ public class RemoveProduct extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Eliminar");
+        jLabel11.setText("ELIMINAR");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -106,7 +106,7 @@ public class RemoveProduct extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Atrás");
+        jLabel12.setText("ATRÁS");
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);

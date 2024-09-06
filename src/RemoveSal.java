@@ -58,7 +58,7 @@ public class RemoveSal extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("eliminar salidas");
+        jLabel2.setText("ELIMINAR SALIDAS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
@@ -67,7 +67,7 @@ public class RemoveSal extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Eliminar");
+        jLabel1.setText("ELIMINAR");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -88,7 +88,7 @@ public class RemoveSal extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("átras");
+        jLabel3.setText("ATRÁS");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -115,7 +115,7 @@ public class RemoveSal extends javax.swing.JPanel {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("Numero de salida");
+        jLabel4.setText("NÚMERO DE SALIDA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, 20));
 
         TxtNumSa.addKeyListener(new java.awt.event.KeyAdapter() {

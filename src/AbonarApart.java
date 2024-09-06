@@ -98,11 +98,11 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel1.setText("Código");
+        jLabel1.setText("CÓDIGO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("Abonar apartado");
+        jLabel2.setText("ABONAR APARTADO");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
         TxtCod.setEditable(false);
@@ -125,14 +125,14 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.add(TxtSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 180, -1));
 
         jLabel9.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel9.setText("nuevo abono");
+        jLabel9.setText("NUEVO ABONO");
         jLabel9.setMaximumSize(new java.awt.Dimension(38, 14));
         jLabel9.setMinimumSize(new java.awt.Dimension(38, 14));
         jLabel9.setPreferredSize(new java.awt.Dimension(38, 14));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 100, -1));
 
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel10.setText("nuevo saldo");
+        jLabel10.setText("NUEVO SALDO");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
@@ -140,7 +140,7 @@ public class AbonarApart extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("abonar");
+        jLabel11.setText("ABONAR");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -171,7 +171,7 @@ public class AbonarApart extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Atrás");
+        jLabel12.setText("ATRÁS");
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
@@ -210,7 +210,7 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 240, 110));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("documento");
+        jLabel4.setText("DOCUMENTO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         TxtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -224,14 +224,14 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.add(TxtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 175, -1));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel5.setText("Abonos");
+        jLabel5.setText("ABONOS");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
 
         TxtTotal.setEditable(false);
         jPanel1.add(TxtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 170, -1));
 
         jLabel13.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel13.setText("Total");
+        jLabel13.setText("TOTAL");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         TxtFecha.setEditable(false);
@@ -241,7 +241,7 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.add(TxtNuevoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 170, -1));
 
         jLabel14.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel14.setText("saldo");
+        jLabel14.setText("SALDO");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -257,11 +257,11 @@ public class AbonarApart extends javax.swing.JPanel {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 240, 110));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel6.setText("Fecha");
+        jLabel6.setText("FECHA");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel7.setText("Prendas");
+        jLabel7.setText("PRENDAS");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(119, 171, 183));
@@ -269,7 +269,7 @@ public class AbonarApart extends javax.swing.JPanel {
 
         BtnSacar.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         BtnSacar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnSacar.setText("sacar");
+        BtnSacar.setText("SACAR");
         BtnSacar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnSacarMouseClicked(evt);

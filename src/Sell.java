@@ -107,11 +107,11 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel1.setText("Código");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, 20));
+        jLabel1.setText("CÓDIGO PRENDA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("vender productos");
+        jLabel2.setText("VENDER PRODUCTOS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         TxtCod.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -129,7 +129,7 @@ public class Sell extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Vender");
+        jLabel11.setText("VENDER");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -169,11 +169,11 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 530, 130));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("fecha");
+        jLabel4.setText("FECHA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel6.setText("cedula");
+        jLabel6.setText("CÉDULA");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 20));
 
         TxtCed.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -187,7 +187,7 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.add(TxtCed, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 175, -1));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel7.setText("nombre");
+        jLabel7.setText("NOMBRE");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, 20));
 
         TxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -205,18 +205,18 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.add(TxtCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 175, -1));
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel8.setText("celular");
+        jLabel8.setText("CELULAR");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
 
         TxtCodVe.setEditable(false);
         jPanel1.add(TxtCodVe, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 175, -1));
 
         jLabel9.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel9.setText("Total");
+        jLabel9.setText("TOTAL");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel14.setText("codigo venta");
+        jLabel14.setText("CÓDIGO VENTA");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, 20));
 
         TxtTot.setEditable(false);
@@ -227,7 +227,7 @@ public class Sell extends javax.swing.JPanel {
 
         jLabel13.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Eliminar fila");
+        jLabel13.setText("ELIMINAR FILA");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -267,14 +267,14 @@ public class Sell extends javax.swing.JPanel {
         jPanel1.add(TxtEfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 160, -1));
 
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel10.setText("Efectivo");
+        jLabel10.setText("EFECTIVO");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, 20));
 
         TxtDev.setEditable(false);
         jPanel1.add(TxtDev, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 160, -1));
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel12.setText("devolver");
+        jLabel12.setText("DEVOLVER");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 20));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 440));

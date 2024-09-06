@@ -71,11 +71,11 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel1.setText("Código");
+        jLabel1.setText("CÓDIGO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("editar productos");
+        jLabel2.setText("EDITAR PRODUCTOS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -92,14 +92,14 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1.add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 175, -1));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("Prenda");
+        jLabel4.setText("PRENDA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 175, -1));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel5.setText("Cantidad");
+        jLabel5.setText("CANTIDAD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
 
         txtCan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -113,7 +113,7 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1.add(txtCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 175, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel6.setText("Descripción");
+        jLabel6.setText("DESCRIPCIÓN");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         txtDes.setColumns(20);
@@ -123,11 +123,11 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 510, 70));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel7.setText("valor Compra Total");
+        jLabel7.setText("VALOR COMPRA TOTAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel8.setText("valor Venta Total");
+        jLabel8.setText("VALOR VENTA TOTAL");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         txtTotCom.setEditable(false);
@@ -157,11 +157,11 @@ public class EditProduct extends javax.swing.JPanel {
         jPanel1.add(txtVen, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel9.setText("valor de Compra");
+        jLabel9.setText("VALOR DE COMPRA");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel10.setText("valor de Venta");
+        jLabel10.setText("VALOR DE VENTA");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
@@ -169,7 +169,7 @@ public class EditProduct extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Guardar");
+        jLabel11.setText("GUARDAR");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -200,7 +200,7 @@ public class EditProduct extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Atrás");
+        jLabel12.setText("ATRÁS");
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);

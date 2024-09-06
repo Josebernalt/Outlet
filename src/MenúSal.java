@@ -47,14 +47,14 @@ public class MenúSal extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("registro de salidas");
+        jLabel2.setText("REGISTRO DE SALIDAS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Nueva salida");
+        jLabel4.setText("NUEVA SALIDA");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -84,7 +84,7 @@ public class MenúSal extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Registro de salida");
+        jLabel5.setText("REGISTRO DE SALIDAS");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -114,7 +114,7 @@ public class MenúSal extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Editar salida");
+        jLabel6.setText("EDITAR SALIDA");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -144,7 +144,7 @@ public class MenúSal extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("eliminar salida");
+        jLabel7.setText("ELIMINAR SALIDA");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);

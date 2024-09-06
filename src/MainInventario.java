@@ -80,7 +80,7 @@ public class MainInventario extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Insertar producto");
+        jLabel2.setText("INSERTAR PRODUCTO");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,14 +138,14 @@ public class MainInventario extends javax.swing.JPanel {
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 150, -1));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel1.setText("control de inventario");
+        jLabel1.setText("CONTROL DE INVENTARIO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(119, 171, 183));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Reporte de inventario");
+        jLabel5.setText("REPORTE DE INVENTARIO");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

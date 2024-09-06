@@ -58,7 +58,7 @@ public class NewSal extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("nueva salidas");
+        jLabel2.setText("NUEVA SALIDA");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(119, 171, 183));
@@ -66,7 +66,7 @@ public class NewSal extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Guardar");
+        jLabel1.setText("GUARDAR");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -97,7 +97,7 @@ public class NewSal extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("átras");
+        jLabel3.setText("ATRÁS");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -124,15 +124,15 @@ public class NewSal extends javax.swing.JPanel {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("Numero de salida");
+        jLabel4.setText("NÚMERO DE SALIDA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel5.setText("descripción");
+        jLabel5.setText("DESCRIPCIÓN");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel6.setText("fecha");
+        jLabel6.setText("FECHA");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, 20));
 
         TxtNumSa.setEditable(false);
@@ -147,7 +147,7 @@ public class NewSal extends javax.swing.JPanel {
         jPanel1.add(TxtPreSa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel7.setText("Precio gastado");
+        jLabel7.setText("PRECIO TOTAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 20));
 
         jDateChooser1.setDateFormatString("yyyy/MM/dd");

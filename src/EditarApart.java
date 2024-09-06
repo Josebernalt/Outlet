@@ -88,11 +88,11 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(TxtDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 175, -1));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel1.setText("documento");
+        jLabel1.setText("DOCUMENTO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel6.setText("Nombre");
+        jLabel6.setText("NOMBRE");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         TxtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -103,7 +103,7 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(TxtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 175, -1));
 
         jLabel14.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel14.setText("Telefono");
+        jLabel14.setText("TELEFONO");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         TxtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -114,7 +114,7 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(TxtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 175, -1));
 
         jLabel13.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel13.setText("Código Apartado");
+        jLabel13.setText("CÓDIGO APARTADO");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         TxtCoda.setEditable(false);
@@ -141,18 +141,18 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(TxtCodPre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 175, -1));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel7.setText("Código prenda");
+        jLabel7.setText("CÓDIGO PRENDA");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel5.setText("Abonado");
+        jLabel5.setText("ABONADO");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
         TxtFecha.setEditable(false);
         jPanel1.add(TxtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 175, -1));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel4.setText("fecha");
+        jLabel4.setText("FECHA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,7 +173,7 @@ public class EditarApart extends javax.swing.JPanel {
 
         jLabel18.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("ELiminar fila");
+        jLabel18.setText("ELIMINAR FILA");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
@@ -200,14 +200,14 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel19.setText("Total");
+        jLabel19.setText("TOTAL");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
         TxtTotal.setEditable(false);
         jPanel1.add(TxtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 77, -1));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel2.setText("editar apartado");
+        jLabel2.setText("EDITAR APARTADO");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(119, 171, 183));
@@ -215,7 +215,7 @@ public class EditarApart extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Atrás");
+        jLabel12.setText("ATRÁS");
         jLabel12.setMaximumSize(new java.awt.Dimension(63, 14));
         jLabel12.setMinimumSize(new java.awt.Dimension(63, 14));
         jLabel12.setPreferredSize(new java.awt.Dimension(63, 14));
@@ -249,7 +249,7 @@ public class EditarApart extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 11)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Guardar");
+        jLabel11.setText("GUARDAR");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -276,7 +276,7 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 390, 150, -1));
 
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel10.setText("saldo edición");
+        jLabel10.setText("SALDO EDICIÓN");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, -1, -1));
 
         TxtNuevoSaldo.setEditable(false);
@@ -296,7 +296,7 @@ public class EditarApart extends javax.swing.JPanel {
         jPanel1.add(TxtAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 77, -1));
 
         jLabel20.setFont(new java.awt.Font("Perpetua Titling MT", 0, 11)); // NOI18N
-        jLabel20.setText("Abona");
+        jLabel20.setText("ABONA");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);

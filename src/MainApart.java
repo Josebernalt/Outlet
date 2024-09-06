@@ -50,7 +50,7 @@ public class MainApart extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("abonar apartado");
+        jLabel3.setText("ABONAR APARTADO");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -80,7 +80,7 @@ public class MainApart extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Nuevo apartado");
+        jLabel2.setText("NUEVO APARTADO");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,14 +108,14 @@ public class MainApart extends javax.swing.JPanel {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 150, -1));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel1.setText("MAnejo de apartados");
+        jLabel1.setText("MANEJO DE APARTADOS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(119, 171, 183));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("reporte de apartados");
+        jLabel5.setText("REPORTE DE APARTADOS");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -145,7 +145,7 @@ public class MainApart extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("editar apartado");
+        jLabel4.setText("EDITAR APARTADO");
         jLabel4.setMaximumSize(new java.awt.Dimension(140, 14));
         jLabel4.setMinimumSize(new java.awt.Dimension(140, 14));
         jLabel4.setPreferredSize(new java.awt.Dimension(140, 14));

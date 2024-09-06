@@ -70,14 +70,14 @@ public class ReportSell extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jLabel1.setText("reporte de Ventas");
+        jLabel1.setText("REPORTE DE VENTAS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(119, 171, 183));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("generar reporte mensual");
+        jLabel3.setText("GENERAR REPORTE MENSUAL");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -107,7 +107,7 @@ public class ReportSell extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("generar reporte anual");
+        jLabel5.setText("GENERAR REPORTE ANUAL");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
