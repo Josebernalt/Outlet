@@ -439,7 +439,7 @@ public class ReportSell extends javax.swing.JPanel {
             repVen.add(new Paragraph("\n"));
             repVen.add(tabPreVen);
             repVen.close();
-            String rutaPDF = "src/Resportes/Venta/Anuales/Reporte de Ventas de " + añoAct +".pdf";
+            String rutaPDF = "src/Reportes/Venta/Anuales/Reporte de Ventas de " + añoAct +".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);
