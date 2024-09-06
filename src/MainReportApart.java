@@ -127,8 +127,7 @@ public class MainReportApart extends javax.swing.JPanel {
             Connection cn = (Connection) con.conexion();
             Document repVen = new Document(PageSize.LETTER);
             repVen.setMargins(72, 72, 72, 72);
-            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/"
-                    + "Ventas/Mensuales/Reporte de Apartados.pdf"));
+            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("src/Reportes/Apartado/Reporte de Apartados.pdf"));
             repVen.open();
             Font priFue = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
             Font segFue = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
@@ -178,8 +177,7 @@ public class MainReportApart extends javax.swing.JPanel {
             repVen.add(new Paragraph("\n"));
             repVen.add(tabTotVen);
             repVen.close();
-            String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/"
-                    + "Ventas/Mensuales/Reporte de Apartados.pdf";
+            String rutaPDF = "src/Reportes/Apartado/Reporte de Apartados.pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);

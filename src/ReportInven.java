@@ -186,8 +186,7 @@ public class ReportInven extends javax.swing.JPanel {
                 repInv.add(tabla);
                 repInv.close();
                 JOptionPane.showMessageDialog(null, "Reporte creado");
-                String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop"
-                    + "/Inventario/Reporte de Inventario.pdf";
+                String rutaPDF = "src/Reportes/Inventario/Reporte de Inventario.pdf";
                 if (Desktop.isDesktopSupported()) {
                     Desktop desktop = Desktop.getDesktop();
                     File archivoPDF = new File(rutaPDF);
@@ -206,8 +205,7 @@ public class ReportInven extends javax.swing.JPanel {
     private void btnRepMenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRepMenMouseClicked
         Document repInv = new Document();
         try {
-            PdfWriter.getInstance(repInv, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop"
-                    + "/Inventario/Reporte de Inventario.pdf"));
+            PdfWriter.getInstance(repInv, new FileOutputStream("src/Reportes/Inventario/Reporte de Inventario.pdf"));
             repInv.open();
             Cone con = new Cone();
             Reporte.GenerarReporteInv(con, repInv);

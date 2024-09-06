@@ -182,8 +182,7 @@ public class ReportSell extends javax.swing.JPanel {
             String mesAct = mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
             String añoAct = String.valueOf(año);
             mesAct = mesAct.substring(0, 1).toUpperCase() + mesAct.substring(1);
-            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/"
-                    + "Ventas/Mensuales/Reporte de Ventas de " + mesAct + " de " + añoAct +".pdf"));
+            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("src/Reportes/Venta/Mensuales/Reporte de Ventas de " + mesAct + " de " + añoAct +".pdf"));
             repVen.open();
             Font priFue = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
             Font segFue = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
@@ -318,8 +317,7 @@ public class ReportSell extends javax.swing.JPanel {
             repVen.add(new Paragraph("\n"));
             repVen.add(tabTotVen);
             repVen.close();
-            String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop"
-                    + "/Ventas/Mensuales/Reporte de Ventas de " + mesAct + " de " + añoAct +".pdf";
+            String rutaPDF = "src/Reportes/Venta/Mensuales/Reporte de Ventas de " + mesAct + " de " + añoAct +".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);
@@ -340,8 +338,7 @@ public class ReportSell extends javax.swing.JPanel {
             repVen.setMargins(72, 72, 72, 72);
             int año = LocalDate.now().getYear();
             String añoAct = String.valueOf(año);
-            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("C:/Users/Jose Eliud Bernal/"
-                    + "Desktop/Ventas/Anuales/Reporte de Ventas de " + añoAct +".pdf"));
+            PdfWriter pdfNom = PdfWriter.getInstance(repVen, new FileOutputStream("src/Reportes/Venta/Anuales/Reporte de Ventas de " + añoAct +".pdf"));
             repVen.open();
             Font priFue = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
             Font segFue = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
@@ -442,7 +439,7 @@ public class ReportSell extends javax.swing.JPanel {
             repVen.add(new Paragraph("\n"));
             repVen.add(tabPreVen);
             repVen.close();
-            String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/Ventas/Anuales/Reporte de Ventas de " + añoAct +".pdf";
+            String rutaPDF = "src/Resportes/Venta/Anuales/Reporte de Ventas de " + añoAct +".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);

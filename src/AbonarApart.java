@@ -386,10 +386,10 @@ public class AbonarApart extends javax.swing.JPanel {
                              Document document = new Document(pageSize);
                              document.setMargins(0, 0, 0, 0);
                              Image img;
-                             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Factura.pdf"));
+                             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("src/Facturas/Apartado/Abonos/Facturaabono.pdf"));
                              document.open();
                              document.add(new Paragraph("\n"));
-                             Image imagen = Image.getInstance("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Logo.png");
+                             Image imagen = Image.getInstance("src/Imagenes/Logo.png");
                              imagen.scaleToFit(70, 70);
                              float x = (pageSize.getWidth() - imagen.getScaledWidth()) / 2;
                              float y = (pageSize.getHeight() - imagen.getScaledHeight());
@@ -487,7 +487,7 @@ public class AbonarApart extends javax.swing.JPanel {
                          } catch (IOException ex) {
                              Logger.getLogger(Sell.class.getName()).log(Level.SEVERE, null, ex);
                          }
-                         print();
+                         print2();
                      DefaultTableModel model = (DefaultTableModel) jTable1.getModel ();
                      for (int i = model.getRowCount () - 1; i >= 0; i--) {
                         model.removeRow (i);
@@ -611,10 +611,10 @@ public class AbonarApart extends javax.swing.JPanel {
                          Document document = new Document(pageSize);
                          document.setMargins(0, 0, 0, 0);
                          Image img;
-                         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Factura.pdf"));
+                         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("src/Facturas/Venta/Facturadeventa.pdf"));
                          document.open();
                          document.add(new Paragraph("\n"));
-                         Image imagen = Image.getInstance("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Logo.png");
+                         Image imagen = Image.getInstance("src/Imagenes/Logo.png");
                          imagen.scaleToFit(70, 70);
                          float x = (pageSize.getWidth() - imagen.getScaledWidth()) / 2;
                          float y = (pageSize.getHeight() - imagen.getScaledHeight());
@@ -791,7 +791,20 @@ public class AbonarApart extends javax.swing.JPanel {
     }
     void print(){
         try {
-             String rutaArchivoPDF = "C:/Users/Jose Eliud Bernal/Desktop/Facturas/Factura.pdf";
+             String rutaArchivoPDF = "src/Facturas/Venta/Facturadeventa.pdf";
+             if (Desktop.isDesktopSupported()) {
+                 Desktop desktop = Desktop.getDesktop();
+                 File archivoPDF = new File(rutaArchivoPDF);
+                 desktop.print(archivoPDF);
+             } else {
+                 System.out.println("Desktop no es compatible con esta plataforma.");
+             }
+             } catch (IOException e) {
+             }
+    }
+    void print2(){
+        try {
+             String rutaArchivoPDF = "src/Facturas/Apartado/Abonos/Facturaabono.pdf";
              if (Desktop.isDesktopSupported()) {
                  Desktop desktop = Desktop.getDesktop();
                  File archivoPDF = new File(rutaArchivoPDF);

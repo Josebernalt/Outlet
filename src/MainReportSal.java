@@ -250,14 +250,12 @@ public class MainReportSal extends javax.swing.JPanel {
             Month mes = LocalDate.now().getMonth();
             String mesAct = mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
             mesAct = mesAct.substring(0, 1).toUpperCase() + mesAct.substring(1);
-            PdfWriter.getInstance(documento, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Salidas/Mensuales/"
-                    + "Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream("src/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf"));
             documento.open();
             Cone con = new Cone();
             Reporte.generarReporteMes(con, documento);
             documento.close();
-            String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/Salidas/Mensuales/"
-                    + "Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf";
+            String rutaPDF = "src/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);
@@ -347,14 +345,12 @@ public class MainReportSal extends javax.swing.JPanel {
         try {
             int año = LocalDate.now().getYear();
             String añoAct = String.valueOf(año);
-            PdfWriter.getInstance(documento, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Salidas/Anuales/"
-                    + "Reprote de Salidas del " + añoAct + ".pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream("src/Reportes/Salidas/Anuales/Reprote de Salidas del " + añoAct + ".pdf"));
             documento.open();
             Cone con = new Cone();
             ReporteAnual.GenerarReporteAnual(con, documento);
             documento.close();
-            String rutaPDF = "C:/Users/Jose Eliud Bernal/Desktop/Salidas/Anuales/"
-                    + "Reprote de Salidas del " + añoAct + ".pdf";
+            String rutaPDF = "src/Reportes/Salidas/AnualesReprote de Salidas del " + añoAct + ".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);

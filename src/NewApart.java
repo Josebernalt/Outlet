@@ -451,10 +451,10 @@ public class NewApart extends javax.swing.JPanel {
                      Document document = new Document(pageSize);
                      document.setMargins(0, 0, 0, 0);
                      Image img;
-                     PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Apartado.pdf"));
+                     PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("src/Facturas/Apartado/Apartado/Apartado.pdf"));
                      document.open();
                      document.add(new Paragraph("\n"));
-                     Image imagen = Image.getInstance("C:/Users/Jose Eliud Bernal/Desktop/Facturas/Logo.png");
+                     Image imagen = Image.getInstance("src/Imagenes/Logo.png");
                      imagen.scaleToFit(70, 70);
                      float x = (pageSize.getWidth() - imagen.getScaledWidth()) / 2;
                      float y = (pageSize.getHeight() - imagen.getScaledHeight());
@@ -769,7 +769,7 @@ public class NewApart extends javax.swing.JPanel {
     }
     void print(){
         try {
-             String rutaArchivoPDF = "C:/Users/Jose Eliud Bernal/Desktop/Facturas/Apartado.pdf";
+             String rutaArchivoPDF = "src/Facturas/Apartado/Apartado/Apartado.pdf";
              if (Desktop.isDesktopSupported()) {
                  Desktop desktop = Desktop.getDesktop();
                  File archivoPDF = new File(rutaArchivoPDF);
