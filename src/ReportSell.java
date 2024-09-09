@@ -238,7 +238,7 @@ public class ReportSell extends javax.swing.JPanel {
             ResultSet rs8 = resSurMen.executeQuery();
             int sur = rs8.next() ? rs8.getInt("surtir") : 0;
             int surTotFin = sur;
-            Paragraph totSur = new Paragraph("Ganancias del mes: " + sur, terFue);
+            Paragraph totSur = new Paragraph("Recogido para surtit del mes: " + sur, terFue);
             repVen.add(totSur);
             //Prendas mas vendidas y su cantidad
             PreparedStatement preMasVen = cn.prepareStatement("SELECT vp.id_pren, p.descripción, tp.Prenda, "
