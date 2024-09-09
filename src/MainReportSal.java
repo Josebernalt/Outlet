@@ -250,12 +250,12 @@ public class MainReportSal extends javax.swing.JPanel {
             Month mes = LocalDate.now().getMonth();
             String mesAct = mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
             mesAct = mesAct.substring(0, 1).toUpperCase() + mesAct.substring(1);
-            PdfWriter.getInstance(documento, new FileOutputStream("src/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream("src/Reportes/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf"));
             documento.open();
             Cone con = new Cone();
             Reporte.generarReporteMes(con, documento);
             documento.close();
-            String rutaPDF = "src/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf";
+            String rutaPDF = "src/Reportes/Salidas/Mensuales/Reprote de Salidas Mes de " + mesAct + " del " + añoAct + ".pdf";
             if (Desktop.isDesktopSupported()) {
                 Desktop desktop = Desktop.getDesktop();
                 File archivoPDF = new File(rutaPDF);

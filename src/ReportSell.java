@@ -215,13 +215,11 @@ public class ReportSell extends javax.swing.JPanel {
             Paragraph totCan = new Paragraph("Cantidad de ventas del mes: " + canTot, terFue);
             repVen.add(totCan);
             //Consultar Ganancia mensuales
-            PreparedStatement ganMen = cn.prepareStatement ("SELECT SUM(vp.prec - (p.preciocom * vp.cantidad)) "
-                    + "AS Ganancias FROM ventaprenda vp JOIN prenda p ON vp.id_pren = p.cod_p JOIN venta v "
-                    + "ON vp.Id_ven = v.cod_ven WHERE MONTH(v.fecha) = MONTH(CURRENT_DATE())");
+            PreparedStatement ganMen = cn.prepareStatement ("SELECT SUM(vp.prec - (p.preciocom * vp.cantidad)) AS Ganancias "
+                    + "FROM ventaprenda vp JOIN prenda p ON vp.id_pren = p.cod_p JOIN venta v ON vp.Id_ven = v.cod_ven WHERE MONTH(v.fecha) = MONTH(CURRENT_DATE()) AND YEAR(v.fecha) = YEAR(CURRENT_DATE());");
             ResultSet rs5 = ganMen.executeQuery();
             int ganTot = rs5.next() ? rs5.getInt("Ganancias") : 0;
-            PreparedStatement resGanMen = cn.prepareStatement ("SELECT SUM(Precio) AS Resta FROM salida "
-                    + "WHERE MONTH(fecha) = MONTH(CURRENT_DATE())");
+            PreparedStatement resGanMen = cn.prepareStatement ("SELECT SUM(Precio) AS Resta FROM salida WHERE MONTH(fecha) = MONTH(CURRENT_DATE()) AND YEAR(fecha) = YEAR(CURRENT_DATE());");
             ResultSet rs7 = resGanMen.executeQuery();
             int ganRes = rs7.next() ? rs7.getInt("Resta") : 0;
             int ganTotFin = ganTot - ganRes;
@@ -234,12 +232,25 @@ public class ReportSell extends javax.swing.JPanel {
                     + "después de considerar todos los costos y deducciones. ", cuaFue);
             advGanMen.setAlignment(Element.ALIGN_CENTER);
             repVen.add(advGanMen);
+            //Cantidad precio para surtir
+            PreparedStatement resSurMen = cn.prepareStatement ("SELECT SUM(p.preciocom * vp.cantidad) AS surtir "
+                    + "FROM ventaprenda vp JOIN prenda p ON vp.id_pren = p.cod_p JOIN venta v ON vp.Id_ven = v.cod_ven WHERE MONTH(v.fecha) = MONTH(CURRENT_DATE()) AND YEAR(v.fecha) = YEAR(CURRENT_DATE());");
+            ResultSet rs8 = resSurMen.executeQuery();
+            int sur = rs8.next() ? rs8.getInt("surtir") : 0;
+            int surTotFin = sur;
+            Paragraph totSur = new Paragraph("Ganancias del mes: " + sur, terFue);
+            repVen.add(totSur);
             //Prendas mas vendidas y su cantidad
             PreparedStatement preMasVen = cn.prepareStatement("SELECT vp.id_pren, p.descripción, tp.Prenda, "
-                    + "SUM(vp.cantidad) AS total_vendido FROM ventaprenda vp JOIN venta v ON vp.Id_ven = v.cod_ven "
-                    + "JOIN prenda p ON vp.id_pren = p.cod_p JOIN tipoprend tp ON tp.Cod_tp = p.TipoPrend "
-                    + "WHERE MONTH(v.fecha) = MONTH(CURRENT_DATE()) GROUP BY vp.id_pren, p.descripción, tp.Prenda "
-                    + "ORDER BY total_vendido DESC LIMIT 5;");
+                    + "SUM(vp.cantidad) AS total_vendido "
+                    + "FROM ventaprenda vp "
+                    + "JOIN venta v ON vp.Id_ven = v.cod_ven "
+                    + "JOIN prenda p ON vp.id_pren = p.cod_p "
+                    + "JOIN tipoprend tp ON tp.Cod_tp = p.TipoPrend "
+                    + "WHERE MONTH(v.fecha) = MONTH(CURRENT_DATE()) AND YEAR(v.fecha) = YEAR(CURRENT_DATE()) "
+                    + "GROUP BY vp.id_pren, p.descripción, tp.Prenda "
+                    + "ORDER BY total_vendido DESC "
+                    + "LIMIT 5;");
             ResultSet rs2 = preMasVen.executeQuery();
             PdfPTable tabPro = new PdfPTable(4);
             tabPro.addCell(new Phrase ("ID de Prenda", segFue));
@@ -299,8 +310,9 @@ public class ReportSell extends javax.swing.JPanel {
             repVen.add(new Paragraph("Detalle de los elementos vendidos ", segFue));
             //Consultar todas las ventas
             PreparedStatement totVenMes = cn.prepareStatement("SELECT cod_ven, preciot, fecha, cliente_id "
-                    + "FROM venta WHERE MONTH(fecha) = MONTH(CURRENT_DATE())"
-                    + "GROUP BY cod_ven, preciot, fecha, cliente_id");
+                    + "FROM venta "
+                    + "WHERE MONTH(fecha) = MONTH(CURRENT_DATE()) AND YEAR(fecha) = YEAR(CURRENT_DATE()) "
+                    + "GROUP BY cod_ven, preciot, fecha, cliente_id;");
             ResultSet rs6 = totVenMes.executeQuery();
             PdfPTable tabTotVen = new PdfPTable(4);
             tabTotVen.addCell(new Phrase ("Codigo de venta", segFue));

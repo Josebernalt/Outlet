@@ -205,14 +205,27 @@ public class ReportInven extends javax.swing.JPanel {
     private void btnRepMenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRepMenMouseClicked
         Document repInv = new Document();
         try {
-            PdfWriter.getInstance(repInv, new FileOutputStream("src/Reportes/Inventario/Reporte de Inventario.pdf"));
+            // Verificar y crear directorio si no existe
+            File directorio = new File("src/Reportes/Inventario");
+            if (!directorio.exists()) {
+                directorio.mkdirs();
+            }
+
+            // Obtener ruta absoluta
+            String ruta = new File("src/Reportes/Inventario/Reporte de Inventario.pdf").getAbsolutePath();
+            PdfWriter.getInstance(repInv, new FileOutputStream(ruta));
             repInv.open();
+
+            // Generar el reporte
             Cone con = new Cone();
             Reporte.GenerarReporteInv(con, repInv);
+
             repInv.close();
         } catch (DocumentException | FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error al crear documento");
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al crear documento: " + e.getMessage());
         } catch (IOException ex) {
+            ex.printStackTrace();
             Logger.getLogger(ReportInven.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRepMenMouseClicked
