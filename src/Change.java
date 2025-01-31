@@ -409,11 +409,7 @@ public class Change extends javax.swing.JPanel {
             }else{
                 DefaultTableModel modelo = (DefaultTableModel) TableEdit.getModel();
                 int codf = Integer.valueOf(TxtCodFac.getText());
-                int valortn = Integer.valueOf(TxtTotal1.getText());
-                PreparedStatement pst2 = cn.prepareStatement("UPDATE venta SET  preciot = ? WHERE cod_ven = ? ") ;
                 PreparedStatement ps = cn.prepareStatement ("INSERT INTO ventaprenda (Id_ven, id_pren, cantidad, prec) VALUES (?,?,?,?)");  
-                pst2.setInt(1, valortn);
-                pst2.setInt(2, codf);
                 ps.setInt(1, codf);
                 for (int i = 0; i < modelo.getRowCount(); i++){
                  ps.setInt (2, Integer.parseInt(modelo.getValueAt(i, 0).toString()));
@@ -422,7 +418,6 @@ public class Change extends javax.swing.JPanel {
                  ps.addBatch();
                 }
                 int[] n3 = ps.executeBatch();
-                int n2= pst2.executeUpdate();
                 boolean exito = true;
                 for (int i = 0; i < n3.length; i++) {
                 if (n3[i] <= 0) { 
@@ -430,7 +425,7 @@ public class Change extends javax.swing.JPanel {
                     break;
                     }
                 }
-                if(exito && n2>0){
+                if(exito ){
                     JOptionPane.showMessageDialog(null, "Se ha registrado los valores", "Ingreso", JOptionPane.INFORMATION_MESSAGE);
                     Pdf();
                     TxtCodFac.requestFocus();
@@ -546,7 +541,7 @@ public class Change extends javax.swing.JPanel {
                         Object datos[] = new Object[]{codp, cant, des, prec3};
                         getModel().addRow(datos);
                         int nuevoStock = cant2 - cant;
-                        PreparedStatement updateStock = cn.prepareStatement("UPDATE prenda SET cantidad = ? WHERE Cod_p = ?");
+                        PreparedStatement updateStock = cn.prepareStatement("UPDATE prenda SET cantidad = ?, preciototalcom = cantidad*preciocom, preciototalven = cantidad*precioven WHERE Cod_p = ?");
                         updateStock.setInt(1, nuevoStock);
                         updateStock.setInt(2, codp);
                         updateStock.executeUpdate();

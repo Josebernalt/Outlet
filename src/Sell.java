@@ -53,16 +53,6 @@ public class Sell extends javax.swing.JPanel {
         initComponents();
         generarSerie();
         jDateChooser1.setMaxSelectableDate(new date());
-        DefaultTableModel mod = (DefaultTableModel) jTable1.getModel();
-        mod.addTableModelListener(new TableModelListener() {
-        @Override
-        public void tableChanged(TableModelEvent e) {
-            if (e.getType() == TableModelEvent.UPDATE) {
-                total2();
-                TxtTot.setText(Integer.toString(total()));
-            }
-        }
-        });
     }
 
       /**
@@ -164,6 +154,11 @@ public class Sell extends javax.swing.JPanel {
             }
         ));
         jTable1.setCellSelectionEnabled(true);
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 530, 130));
@@ -301,7 +296,6 @@ public class Sell extends javax.swing.JPanel {
             Reporte.GenerarReporteInv(con, fact, writer);
             fact.close();
             writer.close();
-            print();
         } catch (DocumentException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Error al crear documento");
         } catch (IOException ex) {
@@ -441,6 +435,12 @@ public class Sell extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TxtEfeKeyTyped
 
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            TxtTot.setText(Integer.toString(total()));
+        }
+    }//GEN-LAST:event_jTable1KeyPressed
+
     @SuppressWarnings("AssignmentToForLoopParameter")
     public void leercodigo(){
         Cone con = new Cone();
@@ -467,7 +467,7 @@ public class Sell extends javax.swing.JPanel {
                         Object datos[] = new Object[]{codp, cant, des, prec3};
                         getModel().addRow(datos);
                         int nuevoStock = cant2 - cant;
-                        PreparedStatement updateStock = cn.prepareStatement("UPDATE prenda SET cantidad = ? WHERE Cod_p = ?");
+                        PreparedStatement updateStock = cn.prepareStatement("UPDATE prenda SET cantidad = ?, preciototalcom = cantidad*preciocom, preciototalven = cantidad*precioven WHERE Cod_p = ?");
                         updateStock.setInt(1, nuevoStock);
                         updateStock.setInt(2, codp);
                         updateStock.executeUpdate();
@@ -602,7 +602,7 @@ public class Sell extends javax.swing.JPanel {
              for (int i = 0; i < modelo.getRowCount(); i++){
                  ps.setInt (2, (int) modelo.getValueAt(i, 0));
                  ps.setInt (3, (int) modelo.getValueAt(i, 1));
-                 ps.setInt (4, (int) modelo.getValueAt(i, 3));
+                 ps.setInt (4, Integer.parseInt(modelo.getValueAt(i, 3).toString()));
                  ps.addBatch();
              }
              int[] n3 = ps.executeBatch();
@@ -701,7 +701,7 @@ public class Sell extends javax.swing.JPanel {
                         Desktop desktop = Desktop.getDesktop();
                         File archivoPDF = new File(rutaPDF);
                     if (archivoPDF.exists()) {      
-                        desktop.open(archivoPDF);
+                        desktop.print(archivoPDF);
                     } else {
                         System.err.println("El archivo no existe: " + rutaPDF);
                     }
@@ -724,16 +724,6 @@ public class Sell extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Error al guardar : " + ex, "Ingreso", JOptionPane.ERROR_MESSAGE);
         }
         }
-    }
-    private void total2() {
-    int total = 0;
-    for (int i = 0; i < jTable1.getRowCount(); i++) {
-        Object value = jTable1.getValueAt(i, 3); // Asegúrate de que 3 sea el índice correcto de la columna de precios
-        if (value instanceof Number) {
-            total += ((Number) value).intValue();
-        }
-    }
-    TxtTot.setText(String.valueOf(total));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
