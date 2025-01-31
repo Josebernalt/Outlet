@@ -329,6 +329,7 @@ public class NewApart extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel12MouseEntered
 
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        //mensaje para ver cambio en commit
         jPanel2.setBackground(new Color(119,171,183));
         jLabel11.setForeground(Color.black);
     }//GEN-LAST:event_jLabel11MouseExited
