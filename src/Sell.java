@@ -286,7 +286,6 @@ public class Sell extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel11MouseExited
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        //
         Rectangle pageSize = new Rectangle(138, 400); // 58 mm de ancho y 100 mm de alto
         Document fact = new Document(pageSize);
         fact.setMargins(0, 0, 0, 0);
